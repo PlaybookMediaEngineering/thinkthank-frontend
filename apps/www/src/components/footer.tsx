@@ -85,10 +85,10 @@ function Sitemap() {
         </SitemapLinks>
       </div>
 
-      <div>
+      <div className="hidden sm:block">
         <SitemapHeading>Newsletter</SitemapHeading>
         <SitemapLinks>
-          <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true" />
+          <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true"/>
         </SitemapLinks>
       </div>
     </>

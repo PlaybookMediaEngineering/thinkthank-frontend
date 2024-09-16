@@ -78,8 +78,8 @@ function Sitemap() {
       <div>
         <SitemapHeading>Company</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Terms of service</SitemapLink>
-          <SitemapLink href="#">Privacy policy</SitemapLink>
+          <SitemapLink href="/terms">Terms of service</SitemapLink>
+          <SitemapLink href="/privacy">Privacy policy</SitemapLink>
         </SitemapLinks>
       </div>
     </>

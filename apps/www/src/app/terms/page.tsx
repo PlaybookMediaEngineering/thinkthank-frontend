@@ -90,7 +90,7 @@ function Header() {
                         We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on the Service infringes the copyright or other intellectual property infringement (&quot;Infringement&quot;) of any person.
                     </p>
                     <p className="mt-4 text-gray-600 text-sm/6">
-                        If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement that is taking place through the Service, you must submit your notice in writing to the attention of &quot;Copyright Infringement&quot; of dmca@solomon-ai.app and include in your notice a detailed description of the alleged Infringement.
+                        If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement that is taking place through the Service, you must submit your notice in writing to the attention of &quot;Copyright Infringement&quot; of dmca@thinkthank.io and include in your notice a detailed description of the alleged Infringement.
                     </p>
                     <p className="mt-4 text-gray-600 text-sm/6">
                         You may be held accountable for damages (including costs and attorneys&apos; fees) for misrepresenting that any Content is infringing your copyright.

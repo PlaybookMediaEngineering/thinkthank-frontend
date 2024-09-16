@@ -26,7 +26,7 @@ const tiers = [
     slug: 'informed',
     description: 'Essential global insights for individual users.',
     priceMonthly: 9,
-    href: '#',
+    href: 'https://app.thinkthankmedia.io',
     highlights: [
       { description: 'Access to daily global news summaries' },
       { description: 'Basic topic customization' },
@@ -87,7 +87,7 @@ const tiers = [
     slug: 'analyst',
     description: 'Comprehensive global insights for professionals.',
     priceMonthly: 29,
-    href: '#',
+    href: 'https://app.thinkthankmedia.io',
     highlights: [
       { description: 'Unlimited access to all analyses and reports' },
       { description: 'Advanced topic and region customization' },
@@ -153,7 +153,7 @@ const tiers = [
     slug: 'enterprise',
     description: 'Tailored global intelligence for organizations.',
     priceMonthly: 'Custom',
-    href: '#',
+    href: 'https://app.thinkthankmedia.io',
     highlights: [
       { description: 'Customized analysis and reporting' },
       { description: 'Dedicated research team' },

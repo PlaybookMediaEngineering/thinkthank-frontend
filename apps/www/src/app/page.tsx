@@ -50,7 +50,7 @@ function Hero() {
             We localize worldwide financial trends, helping you understand how global events impact your daily life.
           </p>
           <div className="flex flex-col mt-12 gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#">Get started</Button>
+            <Button href="https://app.thinkthankmedia.io">Get started</Button>
             <Button variant="secondary" href="/pricing">
               See pricing
             </Button>

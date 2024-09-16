@@ -121,7 +121,7 @@ function TestimonialCard({
       <img
         alt=""
         src={img}
-        className="absolute inset-x-0 top-0 aspect-square w-full object-cover"
+        className="absolute inset-x-0 top-0 object-cover w-full aspect-square"
       />
       <div
         aria-hidden="true"
@@ -129,7 +129,7 @@ function TestimonialCard({
       />
       <figure className="relative p-10">
         <blockquote>
-          <p className="relative text-xl/7 text-white">
+          <p className="relative text-white text-xl/7">
             <span aria-hidden="true" className="absolute -translate-x-full">
               “
             </span>
@@ -139,9 +139,9 @@ function TestimonialCard({
             </span>
           </p>
         </blockquote>
-        <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-medium text-white">{name}</p>
-          <p className="text-sm/6 font-medium">
+        <figcaption className="pt-6 mt-6 border-t border-white/20">
+          <p className="font-medium text-white text-sm/6">{name}</p>
+          <p className="font-medium text-sm/6">
             <span className="bg-gradient-to-r from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] bg-clip-text text-transparent">
               {title}
             </span>
@@ -155,14 +155,14 @@ function TestimonialCard({
 function CallToAction() {
   return (
     <div>
-      <p className="max-w-sm text-sm/6 text-gray-600">
+      <p className="max-w-sm text-gray-600 text-sm/6">
         Join the best sellers in the business and start using Think Thank Media to hit
         your targets today.
       </p>
       <div className="mt-2">
         <Link
-          href="#"
-          className="inline-flex items-center gap-2 text-sm/6 font-medium text-pink-600"
+          href="https://app.thinkthankmedia.io"
+          className="inline-flex items-center gap-2 font-medium text-pink-600 text-sm/6"
         >
           Get started
           <ArrowLongRightIcon className="size-5" />
@@ -189,7 +189,7 @@ export function Testimonials() {
   }
 
   return (
-    <div className="overflow-hidden py-32">
+    <div className="py-32 overflow-hidden">
       <Container>
         <div ref={setReferenceWindowRef}>
           <Subheading>What everyone is saying</Subheading>

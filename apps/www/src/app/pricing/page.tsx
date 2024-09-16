@@ -17,144 +17,124 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Companies all over the world have closed millions of deals with Think Thank Media. Sign up today and start selling smarter.',
+    'Think Thank Media offers flexible pricing options to meet your needs.',
 }
 
 const tiers = [
   {
-    name: 'Starter' as const,
-    slug: 'starter',
-    description: 'Everything you need to start selling.',
-    priceMonthly: 99,
+    name: 'Informed' as const,
+    slug: 'informed',
+    description: 'Essential global insights for individual users.',
+    priceMonthly: 9,
     href: '#',
     highlights: [
-      { description: 'Up to 3 team members' },
-      { description: 'Up to 5 deal progress boards' },
-      { description: 'Source leads from select platforms' },
-      { description: 'Think Thank MediaAI integrations', disabled: true },
-      { description: 'Competitor analysis', disabled: true },
+      { description: 'Access to daily global news summaries' },
+      { description: 'Basic topic customization' },
+      { description: 'Weekly in-depth analysis on key events' },
+      { description: 'Mobile app access', disabled: false },
+      { description: 'AI-powered content recommendations', disabled: true },
     ],
     features: [
       {
-        section: 'Sourcing',
-        name: 'Accounts',
+        section: 'Content',
+        name: 'Daily news summaries',
+        value: true,
+      },
+      {
+        section: 'Content',
+        name: 'In-depth analyses',
+        value: 'Weekly',
+      },
+      {
+        section: 'Content',
+        name: 'Historical context articles',
+        value: '5 / month',
+      },
+      {
+        section: 'Customization',
+        name: 'Topic filters',
         value: 3,
       },
       {
-        section: 'Sourcing',
-        name: 'Deal progress boards',
-        value: 5,
-      },
-      {
-        section: 'Sourcing',
-        name: 'Sourcing platforms',
-        value: 'Select',
-      },
-      {
-        section: 'Sourcing',
-        name: 'Contacts',
-        value: 100,
-      },
-      {
-        section: 'Sourcing',
-        name: 'AI assisted outreach',
+        section: 'Customization',
+        name: 'AI content recommendations',
         value: false,
       },
       {
-        section: 'Analysis',
-        name: 'Competitor analysis',
-        value: false,
+        section: 'Access',
+        name: 'Mobile app',
+        value: true,
       },
       {
-        section: 'Analysis',
-        name: 'Dashboard reporting',
-        value: false,
+        section: 'Access',
+        name: 'Desktop site',
+        value: true,
       },
       {
-        section: 'Analysis',
-        name: 'Community insights',
-        value: false,
-      },
-      {
-        section: 'Analysis',
-        name: 'Performance analysis',
-        value: false,
+        section: 'Interaction',
+        name: 'Community discussions',
+        value: 'Read-only',
       },
       {
         section: 'Support',
         name: 'Email support',
         value: true,
-      },
-      {
-        section: 'Support',
-        name: '24 / 7 call center support',
-        value: false,
-      },
-      {
-        section: 'Support',
-        name: 'Dedicated account manager',
-        value: false,
       },
     ],
   },
   {
-    name: 'Growth' as const,
-    slug: 'growth',
-    description: 'All the extras for your growing team.',
-    priceMonthly: 149,
+    name: 'Analyst' as const,
+    slug: 'analyst',
+    description: 'Comprehensive global insights for professionals.',
+    priceMonthly: 29,
     href: '#',
     highlights: [
-      { description: 'Up to 10 team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 50 verified platforms' },
-      { description: 'Think Thank MediaAI integrations', disabled: false },
-      { description: '5 competitor analyses per month' },
+      { description: 'Unlimited access to all analyses and reports' },
+      { description: 'Advanced topic and region customization' },
+      { description: 'Daily in-depth analyses on key events' },
+      { description: 'AI-powered content recommendations', disabled: false },
+      { description: 'Participate in expert discussions' },
     ],
     features: [
       {
-        section: 'Sourcing',
-        name: 'Accounts',
-        value: 10,
+        section: 'Content',
+        name: 'Daily news summaries',
+        value: true,
       },
       {
-        section: 'Sourcing',
-        name: 'Deal progress boards',
+        section: 'Content',
+        name: 'In-depth analyses',
+        value: 'Daily',
+      },
+      {
+        section: 'Content',
+        name: 'Historical context articles',
         value: 'Unlimited',
       },
       {
-        section: 'Sourcing',
-        name: 'Sourcing platforms',
-        value: '100+',
+        section: 'Customization',
+        name: 'Topic and region filters',
+        value: 'Unlimited',
       },
       {
-        section: 'Sourcing',
-        name: 'Contacts',
-        value: 1000,
-      },
-      {
-        section: 'Sourcing',
-        name: 'AI assisted outreach',
+        section: 'Customization',
+        name: 'AI content recommendations',
         value: true,
       },
       {
-        section: 'Analysis',
-        name: 'Competitor analysis',
-        value: '5 / month',
-      },
-      {
-        section: 'Analysis',
-        name: 'Dashboard reporting',
+        section: 'Access',
+        name: 'Mobile app',
         value: true,
       },
       {
-        section: 'Analysis',
-        name: 'Community insights',
+        section: 'Access',
+        name: 'Desktop site',
         value: true,
       },
       {
-        section: 'Analysis',
-        name: 'Performance analysis',
-        value: true,
+        section: 'Interaction',
+        name: 'Community discussions',
+        value: 'Full participation',
       },
       {
         section: 'Support',
@@ -163,88 +143,73 @@ const tiers = [
       },
       {
         section: 'Support',
-        name: '24 / 7 call center support',
+        name: 'Priority support',
         value: true,
-      },
-      {
-        section: 'Support',
-        name: 'Dedicated account manager',
-        value: false,
       },
     ],
   },
   {
     name: 'Enterprise' as const,
     slug: 'enterprise',
-    description: 'Added flexibility to close deals at scale.',
-    priceMonthly: 299,
+    description: 'Tailored global intelligence for organizations.',
+    priceMonthly: 'Custom',
     href: '#',
     highlights: [
-      { description: 'Unlimited active team members' },
-      { description: 'Unlimited deal progress boards' },
-      { description: 'Source leads from over 100 verified platforms' },
-      { description: 'Think Thank MediaAI integrations', disabled: false },
-      { description: 'Unlimited competitor analyses', disabled: false },
+      { description: 'Customized analysis and reporting' },
+      { description: 'Dedicated research team' },
+      { description: 'API access for integration' },
+      { description: 'Advanced AI-powered insights', disabled: false },
+      { description: 'Unlimited user accounts' },
     ],
     features: [
       {
-        section: 'Sourcing',
-        name: 'Accounts',
+        section: 'Content',
+        name: 'Customized analyses and reports',
+        value: true,
+      },
+      {
+        section: 'Content',
+        name: 'Real-time alerts',
+        value: true,
+      },
+      {
+        section: 'Content',
+        name: 'Historical data access',
+        value: 'Full archive',
+      },
+      {
+        section: 'Customization',
+        name: 'Dedicated research team',
+        value: true,
+      },
+      {
+        section: 'Customization',
+        name: 'Advanced AI insights',
+        value: true,
+      },
+      {
+        section: 'Access',
+        name: 'API integration',
+        value: true,
+      },
+      {
+        section: 'Access',
+        name: 'User accounts',
         value: 'Unlimited',
       },
       {
-        section: 'Sourcing',
-        name: 'Deal progress boards',
-        value: 'Unlimited',
-      },
-      {
-        section: 'Sourcing',
-        name: 'Sourcing platforms',
-        value: '100+',
-      },
-      {
-        section: 'Sourcing',
-        name: 'Contacts',
-        value: 'Unlimited',
-      },
-      {
-        section: 'Sourcing',
-        name: 'AI assisted outreach',
-        value: true,
-      },
-      {
-        section: 'Analysis',
-        name: 'Competitor analysis',
-        value: 'Unlimited',
-      },
-      {
-        section: 'Analysis',
-        name: 'Dashboard reporting',
-        value: true,
-      },
-      {
-        section: 'Analysis',
-        name: 'Community insights',
-        value: true,
-      },
-      {
-        section: 'Analysis',
-        name: 'Performance analysis',
-        value: true,
-      },
-      {
-        section: 'Support',
-        name: 'Email support',
-        value: true,
-      },
-      {
-        section: 'Support',
-        name: '24 / 7 call center support',
-        value: true,
+        section: 'Interaction',
+        name: 'Private briefings',
+        value: 'Monthly',
       },
       {
         section: 'Support',
         name: 'Dedicated account manager',
+        value: true,
+      },
+      {
+        section: 'Support',
+        name: '24/7 priority support',
         value: true,
       },
     ],
@@ -254,11 +219,10 @@ const tiers = [
 function Header() {
   return (
     <Container className="mt-16">
-      <Heading as="h1">Pricing that grows with your team size.</Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Companies all over the world have closed millions of deals with Think Thank Media.
-        Sign up today and start selling smarter.
-      </Lead>
+      <Heading as="h1">Flexible pricing</Heading>
+      {/* <Lead className="max-w-3xl mt-6">
+        Professionals and organizations worldwide rely on Think Thank Media for crucial global insights. Subscribe today and stay ahead of international developments.
+      </Lead> */}
     </Container>
   )
 }
@@ -266,14 +230,14 @@ function Header() {
 function PricingCards() {
   return (
     <div className="relative py-24">
-      <Gradient className="absolute inset-x-2 bottom-0 top-48 rounded-4xl ring-1 ring-inset ring-black/5" />
+      <Gradient className="absolute bottom-0 inset-x-2 top-48 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {tiers.map((tier, tierIndex) => (
             <PricingCard key={tierIndex} tier={tier} />
           ))}
         </div>
-        <LogoCloud className="mt-24" />
+        {/* <LogoCloud className="mt-24" /> */}
       </Container>
     </div>
   )
@@ -282,11 +246,11 @@ function PricingCards() {
 function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
   return (
     <div className="-m-2 grid grid-cols-1 rounded-4xl shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-md">
-      <div className="grid grid-cols-1 rounded-4xl p-2 shadow-md shadow-black/5">
-        <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
+      <div className="grid grid-cols-1 p-2 shadow-md rounded-4xl shadow-black/5">
+        <div className="p-10 bg-white shadow-2xl rounded-3xl pb-9 ring-1 ring-black/5">
           <Subheading>{tier.name}</Subheading>
           <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
-          <div className="mt-8 flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-8">
             <div className="text-5xl font-medium text-gray-950">
               ${tier.priceMonthly}
             </div>
@@ -299,7 +263,7 @@ function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
             <Button href={tier.href}>Start a free trial</Button>
           </div>
           <div className="mt-8">
-            <h3 className="text-sm/6 font-medium text-gray-950">
+            <h3 className="font-medium text-sm/6 text-gray-950">
               Start selling with:
             </h3>
             <ul className="mt-3 space-y-3">
@@ -381,7 +345,7 @@ function PricingTable({
                     ))}
                   </MenuItems>
                 </Menu>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
+                <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none">
                   <ChevronUpDownIcon className="size-4 fill-slate-900" />
                 </div>
               </div>
@@ -416,9 +380,9 @@ function PricingTable({
                 <th
                   scope="colgroup"
                   colSpan={4}
-                  className="px-0 pb-0 pt-10 group-first-of-type:pt-5"
+                  className="px-0 pt-10 pb-0 group-first-of-type:pt-5"
                 >
-                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                  <div className="px-4 py-3 -mx-4 font-semibold rounded-lg bg-gray-50 text-sm/6">
                     {section}
                   </div>
                 </th>
@@ -432,7 +396,7 @@ function PricingTable({
                   >
                     <th
                       scope="row"
-                      className="px-0 py-4 text-sm/6 font-normal text-gray-600"
+                      className="px-0 py-4 font-normal text-gray-600 text-sm/6"
                     >
                       {name}
                     </th>
@@ -492,7 +456,7 @@ function FeatureItem({
       data-disabled={disabled ? true : undefined}
       className="flex items-start gap-4 text-sm/6 text-gray-950/75 data-[disabled]:text-gray-950/25"
     >
-      <span className="inline-flex h-6 items-center">
+      <span className="inline-flex items-center h-6">
         <PlusIcon className="size-[0.9375rem] shrink-0 fill-gray-950/25" />
       </span>
       {disabled && <span className="sr-only">Not included:</span>}
@@ -516,8 +480,8 @@ function Testimonial() {
         <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
           <div className="-mt-96 lg:-mt-52">
             <div className="-m-2 rounded-4xl bg-white/15 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="rounded-4xl p-2 shadow-md shadow-black/5">
-                <div className="overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
+              <div className="p-2 shadow-md rounded-4xl shadow-black/5">
+                <div className="overflow-hidden shadow-2xl rounded-3xl outline outline-1 -outline-offset-1 outline-black/10">
                   <img
                     alt=""
                     src="/testimonials/tina-yards.jpg"
@@ -528,7 +492,7 @@ function Testimonial() {
             </div>
           </div>
           <div className="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
-            <figure className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
+            <figure className="flex flex-col max-w-xl gap-16 mx-auto max-lg:text-center">
               <blockquote>
                 <p className="relative text-3xl tracking-tight text-white before:absolute before:-translate-x-full before:content-['“'] after:absolute after:content-['”'] lg:text-4xl">
                   Thanks to Think Thank Media, we&apos;re finding new leads that we never
@@ -536,8 +500,8 @@ function Testimonial() {
                 </p>
               </blockquote>
               <figcaption className="mt-auto">
-                <p className="text-sm/6 font-medium text-white">Tina Yards</p>
-                <p className="text-sm/6 font-medium">
+                <p className="font-medium text-white text-sm/6">Tina Yards</p>
+                <p className="font-medium text-sm/6">
                   <span className="bg-gradient-to-r from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] bg-clip-text text-transparent">
                     VP of Sales, Protocol
                   </span>
@@ -561,70 +525,45 @@ function FrequentlyAskedQuestions() {
         <Heading as="div" className="mt-2 text-center">
           Your questions answered.
         </Heading>
-        <div className="mx-auto mb-32 mt-16 max-w-xl space-y-12">
+        <div className="max-w-xl mx-auto mt-16 mb-32 space-y-12">
           <dl>
             <dt className="text-sm font-semibold">
-              What measures are in place to ensure the security of our data?
+              How does Think Thank Media ensure the accuracy of its global news analysis?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Data security is a top priority for us, which is ironic given that
-              our business depends on others not taking it very seriously. We
-              understand that any breach could put both us and most of our
-              customers out of business—and behind bars. We employ robust
-              security measures, including data encryption, secure data centers,
-              and regular security audits to ensure this never happens.
+            <dd className="mt-4 text-gray-600 text-sm/6">
+              We employ a rigorous fact-checking process and rely on a diverse network of credible sources worldwide. Our team of experienced journalists and analysts cross-verify information from multiple perspectives before publishing. We also use advanced AI tools to assist in data analysis and pattern recognition, always under human oversight.
             </dd>
           </dl>
           <dl>
             <dt className="text-sm font-semibold">
-              Is there a mobile app available for your platform?
+              Is there a mobile app available for accessing Think Thank Media's content?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, we offer a mobile app that provides all the key
-              functionalities of our desktop platform, allowing sales reps to
-              manage deals on the go. Additionally, we have another app
-              pre-installed on most modern smartphones that allows us to track
-              your location, listen to your conversations, and access your
-              camera and microphone at any time. This app is not available for
-              download.
+            <dd className="mt-4 text-gray-600 text-sm/6">
+              Yes, we offer a mobile app that provides access to all our key features, including real-time news updates, in-depth analyses, and customized alerts. The app is available for both iOS and Android devices, ensuring you stay informed about global events wherever you are.
             </dd>
           </dl>
           <dl>
             <dt className="text-sm font-semibold">
-              Can I customize the workflow to match our company’s deal process?
+              Can I customize the type of news and analysis I receive?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, our platform is highly customizable, although there should be
-              no need. Before you sign up, we discreetly gather information
-              about your company and its processes from a variety of sources. We
-              then use this information to pre-configure the platform to match
-              your existing workflows. This is why we ask for your social
-              security number and access to your email account during the
-              sign-up process.
+            <dd className="mt-4 text-gray-600 text-sm/6">
+              Absolutely. Our platform offers extensive customization options. You can set preferences for specific regions, topics, or industries you're interested in. Our AI-powered recommendation system also learns from your reading habits to suggest relevant content, helping you discover important stories you might have otherwise missed.
             </dd>
           </dl>
           <dl>
             <dt className="text-sm font-semibold">
-              What kind of support do you offer?
+              What kind of support do you offer to subscribers?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              We offer comprehensive support through multiple channels,
-              including 24/7 live chat, email, and phone support. However, since
-              we have full access to your internal network, we will know if
-              you’re having issues before you do.
+            <dd className="mt-4 text-gray-600 text-sm/6">
+              We offer comprehensive support through multiple channels, including email and live chat. Our support team is trained to assist with technical issues, account management, and general inquiries about our content. Enterprise subscribers also benefit from dedicated account managers for personalized assistance.
             </dd>
           </dl>
           <dl>
             <dt className="text-sm font-semibold">
-              Can I integrate the CRM with other sales intelligence tools?
+              How does Think Thank Media handle data privacy and security?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, our solution integrates seamlessly with a variety of other
-              systems. However, be warned that most of these integrations are
-              short-lived. We have a dedicated team of engineers who
-              reverse-engineer the APIs of other tools, enabling us to build
-              their functionality into our product and eventually put them out
-              of business.
+            <dd className="mt-4 text-gray-600 text-sm/6">
+              We take data privacy and security very seriously. All user data is encrypted and stored securely. We adhere to strict privacy policies and comply with global data protection regulations. We never sell personal data to third parties. Users have full control over their data and can request its deletion at any time.
             </dd>
           </dl>
         </div>
@@ -652,7 +591,7 @@ export default function Pricing({
       <Header />
       <PricingCards />
       <PricingTable selectedTier={tier} />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <FrequentlyAskedQuestions />
       <Footer />
     </main>

@@ -33,7 +33,7 @@ function Hero() {
         <Navbar
           // banner={
           //   <Link
-          //     href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+          // href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
           //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
           //   >
           //     Think Thank Media Web App In Private Beta
@@ -43,7 +43,14 @@ function Hero() {
         
         />
         <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
-          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+          <Link
+           href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+           className="flex items-center gap-1 rounded-full bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white w-fit border border-zinc-950"
+           >
+           Think Thank Media Web App In Private Beta
+           <ChevronRightIcon className="size-4" />
+          </Link>
+          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8] pt-4">
             Understand every story.
           </h1>
           <p className="max-w-lg mt-12 font-medium text-gray-600 text-xl/7 sm:text-2xl/8">

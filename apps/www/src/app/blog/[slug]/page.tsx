@@ -49,21 +49,21 @@ export default async function BlogPost({
                   <img
                     alt=""
                     src={image(post.author.image).size(64, 64).url()}
-                    className="aspect-square size-6 rounded-full object-cover"
+                    className="object-cover rounded-full aspect-square size-6"
                   />
                 )}
-                <div className="text-sm/5 text-gray-700">
+                <div className="text-gray-700 text-sm/5">
                   {post.author.name}
                 </div>
               </div>
             )}
             {Array.isArray(post.categories) && (
               <div className="flex flex-wrap gap-2">
-                {post.categories.map((category) => (
+                {post.categories.map((category: any) => (
                   <Link
                     key={category.slug}
                     href={`/blog?category=${category.slug}`}
-                    className="rounded-full border border-dotted border-gray-300 bg-gray-50 px-2 text-sm/6 font-medium text-gray-500"
+                    className="px-2 font-medium text-gray-500 border border-gray-300 border-dotted rounded-full bg-gray-50 text-sm/6"
                   >
                     {category.title}
                   </Link>
@@ -91,17 +91,17 @@ export default async function BlogPost({
                         </p>
                       ),
                       h2: ({ children }) => (
-                        <h2 className="mb-10 mt-12 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+                        <h2 className="mt-12 mb-10 font-medium tracking-tight text-2xl/8 text-gray-950 first:mt-0 last:mb-0">
                           {children}
                         </h2>
                       ),
                       h3: ({ children }) => (
-                        <h3 className="mb-10 mt-12 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+                        <h3 className="mt-12 mb-10 font-medium tracking-tight text-xl/8 text-gray-950 first:mt-0 last:mb-0">
                           {children}
                         </h3>
                       ),
                       blockquote: ({ children }) => (
-                        <blockquote className="my-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+                        <blockquote className="pl-6 my-10 border-l-2 border-l-gray-300 text-base/8 text-gray-950 first:mt-0 last:mb-0">
                           {children}
                         </blockquote>
                       ),
@@ -129,12 +129,12 @@ export default async function BlogPost({
                     },
                     list: {
                       bullet: ({ children }) => (
-                        <ul className="list-disc pl-4 text-base/8 marker:text-gray-400">
+                        <ul className="pl-4 list-disc text-base/8 marker:text-gray-400">
                           {children}
                         </ul>
                       ),
                       number: ({ children }) => (
-                        <ol className="list-decimal pl-4 text-base/8 marker:text-gray-400">
+                        <ol className="pl-4 list-decimal text-base/8 marker:text-gray-400">
                           {children}
                         </ol>
                       ),

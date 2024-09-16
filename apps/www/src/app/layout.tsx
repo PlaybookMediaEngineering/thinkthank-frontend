@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: {
     template: '%s - Think Thank Media',
-    default: 'Think Thank Media - Close every deal',
+    default: 'Think Thank Media - Understand every story',
   },
 }
 

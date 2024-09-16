@@ -8,7 +8,7 @@ import { Subheading } from './text'
 
 function CallToAction() {
   return (
-    <div className="relative pb-16 pt-20 text-center sm:py-24">
+    <div className="relative pt-20 pb-16 text-center sm:py-24">
       <hgroup>
         <Subheading>Get started</Subheading>
         <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
@@ -17,9 +17,9 @@ function CallToAction() {
           Start your free trial today.
         </p>
       </hgroup>
-      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get the cheat codes for selling and unlock your team&apos;s revenue
-        potential.
+      <p className="max-w-xs mx-auto mt-6 text-gray-500 text-sm/6">
+        Decode global complexities and unlock your understanding of world
+        affairs.
       </p>
       <div className="mt-6">
         <Button className="w-full sm:w-auto" href="#">
@@ -31,7 +31,7 @@ function CallToAction() {
 }
 
 function SitemapHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-sm/6 font-medium text-gray-950/50">{children}</h3>
+  return <h3 className="font-medium text-sm/6 text-gray-950/50">{children}</h3>
 }
 
 function SitemapLinks({ children }: { children: React.ReactNode }) {
@@ -52,29 +52,29 @@ function SitemapLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
 function Sitemap() {
   return (
     <>
-      <div>
+      {/* <div>
         <SitemapHeading>Product</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="/pricing">Pricing</SitemapLink>
           <SitemapLink href="#">Analysis</SitemapLink>
           <SitemapLink href="#">API</SitemapLink>
         </SitemapLinks>
-      </div>
+      </div> */}
       <div>
         <SitemapHeading>Company</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Careers</SitemapLink>
+          {/* <SitemapLink href="#">Careers</SitemapLink> */}
           <SitemapLink href="/blog">Blog</SitemapLink>
-          <SitemapLink href="/company">Company</SitemapLink>
+          {/* <SitemapLink href="/company">Company</SitemapLink> */}
         </SitemapLinks>
       </div>
-      <div>
+      {/* <div>
         <SitemapHeading>Support</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="#">Help center</SitemapLink>
           <SitemapLink href="#">Community</SitemapLink>
         </SitemapLinks>
-      </div>
+      </div> */}
       <div>
         <SitemapHeading>Company</SitemapHeading>
         <SitemapLinks>
@@ -157,18 +157,18 @@ export function Footer() {
   return (
     <footer>
       <Gradient className="relative">
-        <div className="absolute inset-2 rounded-4xl bg-white/80" />
+        <div className="absolute bg-white inset-2 rounded-4xl" />
         <Container>
           <CallToAction />
           <PlusGrid className="pb-16">
             <PlusGridRow>
-              <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
-                <div className="col-span-2 flex">
+              <div className="grid grid-cols-2 pb-6 gap-y-10 lg:grid-cols-6 lg:gap-8">
+                <div className="flex col-span-2">
                   <PlusGridItem className="pt-6 lg:pb-6">
                     <Logo className="h-9" />
                   </PlusGridItem>
                 </div>
-                <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
+                <div className="grid grid-cols-2 col-span-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
                   <Sitemap />
                 </div>
               </div>

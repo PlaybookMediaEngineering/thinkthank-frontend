@@ -1,5 +1,6 @@
 'use client'
 
+import { featureFlags } from '@/configs/featureFlags'
 import {
   Disclosure,
   DisclosureButton,
@@ -11,12 +12,19 @@ import { Link } from './link'
 import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
-const links = [
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/company', label: 'Company' },
+const baseLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/login', label: 'Login' },
 ]
+
+const pricingAndCompanyLinks = [
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/company', label: 'Company' },
+]
+
+const links = featureFlags.showPricingAndCompany
+  ? [...pricingAndCompanyLinks, ...baseLinks]
+  : baseLinks
 
 function DesktopNav() {
   return (
@@ -25,7 +33,7 @@ function DesktopNav() {
         <PlusGridItem key={href} className="relative flex">
           <Link
             href={href}
-            className="flex items-center px-4 py-3 text-base font-medium text-gray-950 bg-blend-multiply data-[hover]:bg-black/[2.5%]"
+            className="flex items-center px-4 py-3 text-base font-bold text-gray-150/10 bg-blend-multiply data-[hover]:bg-black/[2.5%]"
           >
             {label}
           </Link>
@@ -67,9 +75,9 @@ function MobileNav() {
           </motion.div>
         ))}
       </div>
-      <div className="absolute left-1/2 w-screen -translate-x-1/2">
+      <div className="absolute w-screen -translate-x-1/2 left-1/2">
         <div className="absolute inset-x-0 top-0 border-t border-black/5" />
-        <div className="absolute inset-x-0 top-2 border-t border-black/5" />
+        <div className="absolute inset-x-0 border-t top-2 border-black/5" />
       </div>
     </DisclosurePanel>
   )
@@ -83,11 +91,11 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           <div className="relative flex gap-6">
             <PlusGridItem className="py-3">
               <Link href="/" title="Home">
-                <Logo className="h-9" />
+                <Logo className="text-white h-9" />
               </Link>
             </PlusGridItem>
-            {banner && (
-              <div className="relative hidden items-center py-3 lg:flex">
+            {featureFlags.showNavbarBanner && banner && (
+              <div className="relative items-center hidden py-3 lg:flex">
                 {banner}
               </div>
             )}

@@ -9,7 +9,7 @@ export async function GET(req: Request) {
   let feed = new Feed({
     title: 'The Think Thank Media Blog',
     description:
-      'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
+      'Stay informed with product updates and company news.',
     author: {
       name: 'Michael Foster',
       email: 'michael.foster@example.com',
@@ -26,7 +26,7 @@ export async function GET(req: Request) {
 
   let posts = await getPostsForFeed()
 
-  posts.forEach((post) => {
+  posts.forEach((post: any) => {
     try {
       assert(typeof post.title === 'string')
       assert(typeof post.slug === 'string')

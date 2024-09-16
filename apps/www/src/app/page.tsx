@@ -17,36 +17,39 @@ import { Heading, Subheading } from '@/components/text'
 import { ChevronRightIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
 
+// Import the feature flag from the centralized config
+import { SHOW_PARTNERS, SHOW_TESTIMONIALS } from '@/configs/featureFlags'
+
 export const metadata: Metadata = {
   description:
-    'Think Thank Media helps you sell more by revealing sensitive information about your customers.',
+    'Think Thank Media helps you navigate complex world events through clear, concise analysis',
 }
 
 function Hero() {
   return (
-    <div className="relative">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-inset ring-black/5" />
+    <div className="relative text-white">
+      <Gradient className="absolute bottom-0 inset-2 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <Navbar
-          banner={
-            <Link
-              href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
-              className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
-            >
-              Think Thank Media raises $100M Series A from Tailwind Ventures
-              <ChevronRightIcon className="size-4" />
-            </Link>
-          }
+          // banner={
+          //   <Link
+          //     href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+          //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
+          //   >
+          //     Think Thank Media Web App In Private Beta
+          //     <ChevronRightIcon className="size-4" />
+          //   </Link>
+          // }
         />
-        <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
-          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-            Close every deal.
+        <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
+          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-150 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+            Understand every story.
           </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
+          <p className="max-w-lg mt-8 font-medium text-xl/7 text-gray-150 sm:text-2xl/8">
             Think Thank Media helps you sell more by revealing sensitive information about
             your customers.
           </p>
-          <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
+          <div className="flex flex-col mt-12 gap-x-6 gap-y-4 sm:flex-row">
             <Button href="#">Get started</Button>
             <Button variant="secondary" href="/pricing">
               See pricing
@@ -63,13 +66,14 @@ function FeatureSection() {
     <div className="overflow-hidden">
       <Container className="pb-24">
         <Heading as="h2" className="max-w-3xl">
-          A snapshot of your entire sales pipeline.
+          A panoramic view of global events shaping our world.
         </Heading>
-        <Screenshot
-          width={1216}
-          height={768}
-          src="./screenshots/app.png"
-          className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem]"
+        <BentoCard
+          eyebrow="Limitless"
+          title="A panoramic view of our world"
+          description="Think Thank Media expands your global perspective, illuminating complex situations from every corner of the planet. Gain insights into regions often overlooked, and understand how local events shape our interconnected world."
+          graphic={<Map />}
+          className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem] rounded-4xl"
         />
       </Container>
     </div>
@@ -80,15 +84,15 @@ function BentoSection() {
   return (
     <Container>
       <Subheading>Sales</Subheading>
-      <Heading as="h3" className="mt-2 max-w-3xl">
-        Know more about your customers than they do.
+      <Heading as="h3" className="max-w-3xl mt-2">
+        Uncover the stories behind the headlines
       </Heading>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+      <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
           eyebrow="Insight"
-          title="Get perfect clarity"
-          description="Think Thank Media uses social engineering to build a detailed financial picture of your leads. Know their budget, compensation package, social security number, and more."
+          title="Gain crystal-clear understanding"
+          description="Think Thank Media breaks down complex global events into digestible analyses. Grasp the nuances of international affairs, economic trends, and societal shifts with our in-depth yet accessible coverage."
           graphic={
             <div className="h-80 bg-[url(/screenshots/profile.png)] bg-[size:1000px_560px] bg-[left_-109px_top_-112px] bg-no-repeat" />
           }
@@ -97,8 +101,8 @@ function BentoSection() {
         />
         <BentoCard
           eyebrow="Analysis"
-          title="Undercut your competitors"
-          description="With our advanced data mining, you’ll know which companies your leads are talking to and exactly how much they’re being charged."
+          title="Stay ahead of global trends"
+          description="With our advanced research methods, you'll understand emerging geopolitical shifts and economic developments before they become mainstream news. Gain a competitive edge in understanding world affairs."
           graphic={
             <div className="absolute inset-0 bg-[url(/screenshots/competitors.png)] bg-[size:1100px_650px] bg-[left_-38px_top_-73px] bg-no-repeat" />
           }
@@ -107,10 +111,10 @@ function BentoSection() {
         />
         <BentoCard
           eyebrow="Speed"
-          title="Built for power users"
-          description="It’s never been faster to cold email your entire contact list using our streamlined keyboard shortcuts."
+          title="Built for information seekers"
+          description="Navigate complex global news with ease using our streamlined interface and intuitive search features. Quickly access in-depth analysis on breaking stories and long-term trends."
           graphic={
-            <div className="flex size-full pl-10 pt-10">
+            <div className="flex pt-10 pl-10 size-full">
               <Keyboard highlighted={['LeftCommand', 'LeftShift', 'D']} />
             </div>
           }
@@ -118,15 +122,15 @@ function BentoSection() {
         />
         <BentoCard
           eyebrow="Source"
-          title="Get the furthest reach"
-          description="Bypass those inconvenient privacy laws to source leads from the most unexpected places."
+          title="Expand your global perspective"
+          description="Access diverse viewpoints and in-depth reporting from around the world. Our comprehensive coverage helps you understand events from multiple angles and cultural contexts."
           graphic={<LogoCluster />}
           className="lg:col-span-2"
         />
         <BentoCard
           eyebrow="Limitless"
-          title="Sell globally"
-          description="Think Thank Media helps you sell in locations currently under international embargo."
+          title="Understand globally"
+          description="Think Thank Media helps you comprehend complex situations in every corner of the world, including regions often overlooked by mainstream media."
           graphic={<Map />}
           className="max-lg:rounded-b-4xl lg:col-span-2 lg:rounded-br-4xl"
         />
@@ -137,19 +141,18 @@ function BentoSection() {
 
 function DarkBentoSection() {
   return (
-    <div className="mx-2 mt-2 rounded-4xl bg-gray-900 py-32">
+    <div className="py-32 mx-2 mt-2 bg-white rounded-4xl">
       <Container>
-        <Subheading dark>Outreach</Subheading>
-        <Heading as="h3" dark className="mt-2 max-w-3xl">
-          Customer outreach has never been easier.
-        </Heading>
+        <Subheading dark>Insight</Subheading>
+        <Heading as="h3" className="max-w-3xl mt-2">
+Understanding world events has never been clearer.
+       </Heading>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+        <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard
-            dark
             eyebrow="Networking"
-            title="Sell at the speed of light"
-            description="Our Think Thank MediaAI chat assistants analyze the sentiment of your conversations in real time, ensuring you're always one step ahead."
+            title="Understand at the speed of news"
+            description="Our AI-powered platform analyzes global events in real-time, providing you with instant insights and context as stories unfold around the world."
             graphic={
               <div className="h-80 bg-[url(/screenshots/networking.png)] bg-[size:851px_344px] bg-no-repeat" />
             }
@@ -157,27 +160,24 @@ function DarkBentoSection() {
             className="max-lg:rounded-t-4xl lg:col-span-4 lg:rounded-tl-4xl"
           />
           <BentoCard
-            dark
             eyebrow="Integrations"
-            title="Meet leads where they are"
-            description="With thousands of integrations, no one will be able to escape your cold outreach."
+            title="Access insights wherever you are"
+            description="With multi-platform support, stay informed on global events through your preferred devices and apps, ensuring you never miss critical developments."
             graphic={<LogoTimeline />}
             // `!overflow-visible` is needed to work around a Chrome bug that disables the mask on the graphic.
             className="z-10 !overflow-visible lg:col-span-2 lg:rounded-tr-4xl"
           />
           <BentoCard
-            dark
             eyebrow="Meetings"
-            title="Smart call scheduling"
-            description="Automatically insert intro calls into your leads' calendars without their consent."
+            title="Smart news scheduling"
+            description="Customize your news feed to receive timely updates on the global events that matter most to you, delivered at your preferred intervals."
             graphic={<LinkedAvatars />}
             className="lg:col-span-2 lg:rounded-bl-4xl"
           />
           <BentoCard
-            dark
             eyebrow="Engagement"
-            title="Become a thought leader"
-            description="Think Thank MediaAI automatically writes LinkedIn posts that relate current events to B2B sales, helping you build a reputation as a thought leader."
+            title="Enhance your global perspective"
+            description="Think Thank Media's AI-powered analysis helps you understand the complexities of world events, enabling you to engage in informed discussions on international affairs."
             graphic={
               <div className="h-80 bg-[url(/screenshots/engagement.png)] bg-[size:851px_344px] bg-no-repeat" />
             }
@@ -195,16 +195,20 @@ export default function Home() {
     <div className="overflow-hidden">
       <Hero />
       <main>
-        <Container className="mt-10">
-          <LogoCloud />
-        </Container>
+        {SHOW_PARTNERS && (
+          <Container className="mt-10">
+            <LogoCloud />
+          </Container>
+        )}
         <div className="bg-gradient-to-b from-white from-50% to-gray-100 py-32">
           <FeatureSection />
           <BentoSection />
         </div>
         <DarkBentoSection />
       </main>
-      <Testimonials />
+      {SHOW_TESTIMONIALS && (
+        <Testimonials />
+      )}
       <Footer />
     </div>
   )

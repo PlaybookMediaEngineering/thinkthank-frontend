@@ -27,7 +27,7 @@ function CallToAction() {
           Get started
         </Button>
       </div>
-      <div className="flex flex-col items-center justify-center gap-2 mt-12">
+      <div className="hidden sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-2 sm:mt-12">
         <p className="text-gray-500 text-sm/6">
           Sign up for our newsletter
         </p>

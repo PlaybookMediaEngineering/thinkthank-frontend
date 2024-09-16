@@ -1,4 +1,5 @@
 import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
+import BeehiivEmbed from './beehiv-form'
 import { Button } from './button'
 import { Container } from './container'
 import { Gradient } from './gradient'
@@ -75,11 +76,19 @@ function Sitemap() {
           <SitemapLink href="#">Community</SitemapLink>
         </SitemapLinks>
       </div> */}
+
       <div>
         <SitemapHeading>Company</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="/terms">Terms of service</SitemapLink>
           <SitemapLink href="/privacy">Privacy policy</SitemapLink>
+        </SitemapLinks>
+      </div>
+
+      <div>
+        <SitemapHeading>Newsletter</SitemapHeading>
+        <SitemapLinks>
+          <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true" />
         </SitemapLinks>
       </div>
     </>

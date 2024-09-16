@@ -27,6 +27,12 @@ function CallToAction() {
           Get started
         </Button>
       </div>
+      <div className="flex flex-col items-center justify-center gap-2 mt-12">
+        <p className="text-gray-500 text-sm/6">
+          Sign up for our newsletter
+        </p>
+        <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true" />
+      </div>
     </div>
   )
 }

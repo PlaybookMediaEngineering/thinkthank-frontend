@@ -14,7 +14,7 @@ import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
 const baseLinks = [
   { href: '/blog', label: 'Blog' },
-  { href: '/login', label: 'Login' },
+  { href: 'https://app.thinkthank.io', label: 'Login' },
 ]
 
 const pricingAndCompanyLinks = [

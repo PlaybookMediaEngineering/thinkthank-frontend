@@ -47,8 +47,7 @@ function Hero() {
             Understand every story.
           </h1>
           <p className="max-w-lg mt-12 font-medium text-gray-600 text-xl/7 sm:text-2xl/8">
-            Think Thank Media helps you sell more by revealing sensitive information about
-            your customers.
+            We localize worldwide financial trends, helping you understand how global events impact your daily life.
           </p>
           <div className="flex flex-col mt-12 gap-x-6 gap-y-4 sm:flex-row">
             <Button href="#">Get started</Button>

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 function Hero() {
   return (
-    <div className="relative text-white">
+    <div className="relative">
       <Gradient className="absolute bottom-0 inset-2 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <Navbar
@@ -40,12 +40,13 @@ function Hero() {
           //     <ChevronRightIcon className="size-4" />
           //   </Link>
           // }
+        
         />
         <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
-          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-150 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
             Understand every story.
           </h1>
-          <p className="max-w-lg mt-8 font-medium text-xl/7 text-gray-150 sm:text-2xl/8">
+          <p className="max-w-lg mt-12 font-medium text-gray-600 text-xl/7 sm:text-2xl/8">
             Think Thank Media helps you sell more by revealing sensitive information about
             your customers.
           </p>

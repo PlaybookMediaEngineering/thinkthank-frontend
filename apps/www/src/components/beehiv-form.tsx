@@ -5,7 +5,7 @@ interface BeehiivEmbedProps {
   height?: number;
 }
 
-const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src = "https://embeds.beehiiv.com/aa7a2a0b-4d44-4b4f-afd5-02af1399c5fd?slim=true", height = 52 }) => {
+const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src = "https://embeds.beehiiv.com/e30d9d53-2d37-48ce-92a8-dffd562c8b05?slim=true", height = 52 }) => {
   return (
     <iframe
       src={src}

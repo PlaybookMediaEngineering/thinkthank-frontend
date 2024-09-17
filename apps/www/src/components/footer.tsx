@@ -31,7 +31,7 @@ function CallToAction() {
         <p className="text-gray-500 text-sm/6">
           Sign up for our newsletter
         </p>
-        <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true" />
+        <BeehiivEmbed  />
       </div>
     </div>
   )
@@ -94,7 +94,7 @@ function Sitemap() {
       <div className="hidden sm:block">
         <SitemapHeading>Newsletter</SitemapHeading>
         <SitemapLinks>
-          <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true"/>
+          <BeehiivEmbed />
         </SitemapLinks>
       </div>
     </>

@@ -1,11 +1,11 @@
 import React from "react";
 
 interface BeehiivEmbedProps {
-  src: string;
+  src?: string;
   height?: number;
 }
 
-const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src, height = 52 }) => {
+const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src = "https://embeds.beehiiv.com/aa7a2a0b-4d44-4b4f-afd5-02af1399c5fd?slim=true", height = 52 }) => {
   return (
     <iframe
       src={src}

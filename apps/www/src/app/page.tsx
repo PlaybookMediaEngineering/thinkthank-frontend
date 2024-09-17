@@ -13,11 +13,12 @@ import { Map } from '@/components/map'
 import { Navbar } from '@/components/navbar'
 import { Screenshot } from '@/components/screenshot'
 import { Testimonials } from '@/components/testimonials'
-import { Heading, Subheading } from '@/components/text'
+import { Heading, Lead, Subheading } from '@/components/text'
 import { ChevronRightIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
 
 // Import the feature flag from the centralized config
+import BeehiivEmbed from '@/components/beehiv-form'
 import { SHOW_PARTNERS, SHOW_TESTIMONIALS } from '@/configs/featureFlags'
 
 export const metadata: Metadata = {
@@ -31,24 +32,24 @@ function Hero() {
       <Gradient className="absolute bottom-0 inset-2 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <Navbar
-          // banner={
-          //   <Link
-          // href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
-          //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
-          //   >
-          //     Think Thank Media Web App In Private Beta
-          //     <ChevronRightIcon className="size-4" />
-          //   </Link>
-          // }
-        
+        // banner={
+        //   <Link
+        // href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+        //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
+        //   >
+        //     Think Thank Media Web App In Private Beta
+        //     <ChevronRightIcon className="size-4" />
+        //   </Link>
+        // }
+
         />
         <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
           <Link
-           href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
-           className="flex items-center gap-1 rounded-full bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white w-fit border border-zinc-950"
-           >
-           Think Thank Media Web App In Private Beta
-           <ChevronRightIcon className="size-4" />
+            href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+            className="flex items-center gap-1 rounded-full bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white w-fit border border-zinc-950"
+          >
+            Think Thank Media Web App In Private Beta
+            <ChevronRightIcon className="size-4" />
           </Link>
           <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8] pt-4">
             Understand every story.
@@ -72,9 +73,17 @@ function FeatureSection() {
   return (
     <div className="overflow-hidden">
       <Container className="pb-24">
-        <Heading as="h2" className="max-w-3xl">
-          A panoramic view of global events shaping our world.
-        </Heading>
+        <div className="flex flex-col gap-4 md:flex-row md:justify-between">
+          <Heading as="h2" className="max-w-3xl">
+            A panoramic view of global events shaping our world.
+          </Heading>
+          <div className="flex flex-col mt-12 gap-x-6 gap-y-4">
+            <Lead className="w-full text-zinc-950">
+              Sign up for our newsletter
+            </Lead>
+            <BeehiivEmbed src="https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true" />
+          </div>
+        </div>
         <BentoCard
           eyebrow="Limitless"
           title="A panoramic view of our world"
@@ -152,8 +161,8 @@ function DarkBentoSection() {
       <Container>
         <Subheading dark>Insight</Subheading>
         <Heading as="h3" className="max-w-3xl mt-2">
-Understanding world events has never been clearer.
-       </Heading>
+          Understanding world events has never been clearer.
+        </Heading>
 
         <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard

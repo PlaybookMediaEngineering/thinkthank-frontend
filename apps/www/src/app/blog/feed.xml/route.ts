@@ -8,8 +8,7 @@ export async function GET(req: Request) {
 
   let feed = new Feed({
     title: 'The Think Thank Media Blog',
-    description:
-      'Stay informed with product updates and company news.',
+    description: 'Stay informed with product updates and company news.',
     author: {
       name: 'Michael Foster',
       email: 'michael.foster@example.com',

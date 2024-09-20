@@ -27,8 +27,7 @@ import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description:
-    'Stay informed with product updates and company news.',
+  description: 'Stay informed with product updates and company news.',
 }
 
 const postsPerPage = 5
@@ -44,11 +43,11 @@ async function FeaturedPosts() {
     <div className="mt-16 bg-gradient-to-t from-gray-100 pb-14">
       <Container>
         <h2 className="text-2xl font-medium tracking-tight">Featured</h2>
-        <div className="grid grid-cols-1 gap-8 mt-6 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredPosts.map((post: any) => (
             <div
               key={post.slug}
-              className="relative flex flex-col p-2 bg-white shadow-md rounded-3xl shadow-black/5 ring-1 ring-black/5"
+              className="relative flex flex-col rounded-3xl bg-white p-2 shadow-md shadow-black/5 ring-1 ring-black/5"
             >
               {post.mainImage && (
                 <img
@@ -57,29 +56,29 @@ async function FeaturedPosts() {
                   className="aspect-[3/2] w-full rounded-2xl object-cover"
                 />
               )}
-              <div className="flex flex-col flex-1 p-8">
-                <div className="text-gray-700 text-sm/5">
+              <div className="flex flex-1 flex-col p-8">
+                <div className="text-sm/5 text-gray-700">
                   {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
                 </div>
-                <div className="mt-2 font-medium text-base/7">
+                <div className="mt-2 text-base/7 font-medium">
                   <Link href={`/blog/${post.slug}`}>
                     <span className="absolute inset-0" />
                     {post.title}
                   </Link>
                 </div>
-                <div className="flex-1 mt-2 text-gray-500 text-sm/6">
+                <div className="mt-2 flex-1 text-sm/6 text-gray-500">
                   {post.excerpt}
                 </div>
                 {post.author && (
-                  <div className="flex items-center gap-3 mt-6">
+                  <div className="mt-6 flex items-center gap-3">
                     {post.author.image && (
                       <img
                         alt=""
                         src={image(post.author.image).size(64, 64).url()}
-                        className="object-cover rounded-full aspect-square size-6"
+                        className="aspect-square size-6 rounded-full object-cover"
                       />
                     )}
-                    <div className="text-gray-700 text-sm/5">
+                    <div className="text-sm/5 text-gray-700">
                       {post.author.name}
                     </div>
                   </div>
@@ -164,7 +163,7 @@ async function Posts({ page, category }: { page: number; category?: string }) {
       {posts.map((post: any) => (
         <div
           key={post.slug}
-          className="relative grid grid-cols-1 py-10 border-b border-b-gray-100 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3"
+          className="relative grid grid-cols-1 border-b border-b-gray-100 py-10 first:border-t first:border-t-gray-200 max-sm:gap-3 sm:grid-cols-3"
         >
           <div>
             <div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
@@ -176,22 +175,22 @@ async function Posts({ page, category }: { page: number; category?: string }) {
                   <img
                     alt=""
                     src={image(post.author.image).width(64).height(64).url()}
-                    className="object-cover rounded-full aspect-square size-6"
+                    className="aspect-square size-6 rounded-full object-cover"
                   />
                 )}
-                <div className="text-gray-700 text-sm/5">
+                <div className="text-sm/5 text-gray-700">
                   {post.author.name}
                 </div>
               </div>
             )}
           </div>
           <div className="sm:col-span-2 sm:max-w-2xl">
-            <h2 className="font-medium text-sm/5">{post.title}</h2>
-            <p className="mt-3 text-gray-500 text-sm/6">{post.excerpt}</p>
+            <h2 className="text-sm/5 font-medium">{post.title}</h2>
+            <p className="mt-3 text-sm/6 text-gray-500">{post.excerpt}</p>
             <div className="mt-4">
               <Link
                 href={`/blog/${post.slug}`}
-                className="flex items-center gap-1 font-medium text-sm/5"
+                className="flex items-center gap-1 text-sm/5 font-medium"
               >
                 <span className="absolute inset-0" />
                 Read more
@@ -233,7 +232,7 @@ async function Pagination({
   }
 
   return (
-    <div className="flex items-center justify-between gap-2 mt-6">
+    <div className="mt-6 flex items-center justify-between gap-2">
       <Button
         variant="outline"
         href={previousPageUrl}
@@ -293,12 +292,12 @@ export default async function Blog({
         <Heading as="h1" className="mt-2">
           What’s happening at Think Thank Media.
         </Heading>
-        <Lead className="max-w-3xl mt-6">
+        <Lead className="mt-6 max-w-3xl">
           Stay informed with product updates and company news.
         </Lead>
       </Container>
       {page === 1 && !category && <FeaturedPosts />}
-      <Container className="pb-24 mt-16">
+      <Container className="mt-16 pb-24">
         <Categories selected={category} />
         <Posts page={page} category={category} />
         <Pagination page={page} category={category} />

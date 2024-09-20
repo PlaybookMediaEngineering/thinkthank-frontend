@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react'
 
 interface BeehiivEmbedProps {
-  src?: string;
-  height?: number;
+  src?: string
+  height?: number
 }
 
-const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src = "https://embeds.beehiiv.com/e30d9d53-2d37-48ce-92a8-dffd562c8b05?slim=true", height = 52 }) => {
+const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({
+  src = 'https://embeds.beehiiv.com/4f692db9-f752-431a-a867-ef422864a11b?slim=true',
+  height = 52,
+}) => {
   return (
     <iframe
       src={src}
@@ -18,7 +21,7 @@ const BeehiivEmbed: React.FC<BeehiivEmbedProps> = ({ src = "https://embeds.beehi
         margin: 0,
       }}
     />
-  );
-};
+  )
+}
 
-export default BeehiivEmbed;
+export default BeehiivEmbed

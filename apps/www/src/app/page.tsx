@@ -11,14 +11,13 @@ import { LogoCluster } from '@/components/logo-cluster'
 import { LogoTimeline } from '@/components/logo-timeline'
 import { Map } from '@/components/map'
 import { Navbar } from '@/components/navbar'
-import { Screenshot } from '@/components/screenshot'
 import { Testimonials } from '@/components/testimonials'
 import { Heading, Subheading } from '@/components/text'
 import { ChevronRightIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
 
 // Import the feature flag from the centralized config
-import { default as BeehiivEmbed, default as BeehivForm } from '@/components/beehiv-form'
+import { default as BeehiivEmbed } from '@/components/beehiv-form'
 import { SHOW_PARTNERS, SHOW_TESTIMONIALS } from '@/configs/featureFlags'
 
 export const metadata: Metadata = {
@@ -32,30 +31,30 @@ function Hero() {
       <Gradient className="absolute bottom-0 inset-2 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <Navbar
-          // banner={
-          //   <Link
-          // href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
-          //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
-          //   >
-          //     Think Thank Media Web App In Private Beta
-          //     <ChevronRightIcon className="size-4" />
-          //   </Link>
-          // }
-        
+        // banner={
+        //   <Link
+        // href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+        //     className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-[hover]:bg-fuchsia-950/30"
+        //   >
+        //     Think Thank Media Web App In Private Beta
+        //     <ChevronRightIcon className="size-4" />
+        //   </Link>
+        // }
         />
         <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
           <Link
-           href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
-           className="flex items-center gap-1 rounded-full bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white w-fit border border-zinc-950"
-           >
-           Think Thank Media Web App In Private Beta
-           <ChevronRightIcon className="size-4" />
+            href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
+            className="flex w-fit items-center gap-1 rounded-full border border-zinc-950 bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white"
+          >
+            Think Thank Media Web App In Private Beta
+            <ChevronRightIcon className="size-4" />
           </Link>
-          <h1 className="font-display text-balance text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8] pt-4">
+          <h1 className="font-display text-balance pt-4 text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
             Understand every story.
           </h1>
           <p className="max-w-lg mt-12 font-medium text-gray-600 text-xl/7 sm:text-2xl/8">
-            We localize worldwide financial trends, helping you understand how global events impact your daily life.
+            We localize worldwide financial trends, helping you understand how
+            global events impact your daily life.
           </p>
           <div className="flex flex-col mt-12 gap-x-6 gap-y-4 sm:flex-row">
             <Button href="https://app.thinkthankmedia.io">Get started</Button>
@@ -76,18 +75,18 @@ function FeatureSection() {
         <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2">
           <Heading as="h2" className="max-w-3xl">
             A panoramic view of global events shaping our world.
-        </Heading>
-        <div className="flex flex-col mt-12 gap-x-6 gap-y-4">
-          <p>Sign up for our newsletter</p>
+          </Heading>
+          <div className="flex flex-col mt-12 gap-x-6 gap-y-4">
+            <p>Sign up for our newsletter</p>
             <BeehiivEmbed />
-        </div>
+          </div>
         </div>
         <BentoCard
           eyebrow="Limitless"
           title="A panoramic view of our world"
           description="Think Thank Media expands your global perspective, illuminating complex situations from every corner of the planet. Gain insights into regions often overlooked, and understand how local events shape our interconnected world."
           graphic={<Map />}
-          className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem] rounded-4xl"
+          className="mt-16 h-[36rem] rounded-4xl sm:h-auto sm:w-[76rem]"
         />
       </Container>
     </div>
@@ -159,8 +158,8 @@ function DarkBentoSection() {
       <Container>
         <Subheading dark>Insight</Subheading>
         <Heading as="h3" className="max-w-3xl mt-2">
-Understanding world events has never been clearer.
-       </Heading>
+          Understanding world events has never been clearer.
+        </Heading>
 
         <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard
@@ -220,9 +219,7 @@ export default function Home() {
         </div>
         <DarkBentoSection />
       </main>
-      {SHOW_TESTIMONIALS && (
-        <Testimonials />
-      )}
+      {SHOW_TESTIMONIALS && <Testimonials />}
       <Footer />
     </div>
   )

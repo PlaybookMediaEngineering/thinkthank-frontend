@@ -7,7 +7,7 @@ export async function getDefaultDomains(workspaceId: string) {
       projectId: workspaceId,
     },
     select: {
-      dubsh: true,
+      thinkthankio: true,
       dublink: true,
       chatgpt: true,
       sptifi: true,

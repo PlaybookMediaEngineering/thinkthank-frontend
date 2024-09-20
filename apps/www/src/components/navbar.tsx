@@ -13,12 +13,12 @@ import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
 const baseLinks = [
+  { href: '/pricing', label: 'Pricing' },
   { href: '/blog', label: 'Blog' },
   { href: 'https://app.thinkthank.io', label: 'Login' },
 ]
 
 const pricingAndCompanyLinks = [
-  { href: '/pricing', label: 'Pricing' },
   { href: '/company', label: 'Company' },
 ]
 
@@ -33,7 +33,7 @@ function DesktopNav() {
         <PlusGridItem key={href} className="relative flex">
           <Link
             href={href}
-            className="flex items-center px-4 py-3 text-base font-bold text-gray-150/10 bg-blend-multiply data-[hover]:bg-black/[2.5%]"
+            className="text-gray-150/10 flex items-center px-4 py-3 text-base font-bold bg-blend-multiply data-[hover]:bg-black/[2.5%]"
           >
             {label}
           </Link>

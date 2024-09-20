@@ -23,15 +23,16 @@ function CallToAction() {
         affairs.
       </p>
       <div className="mt-6">
-        <Button className="w-full sm:w-auto" href="https://app.thinkthankmedia.io">
+        <Button
+          className="w-full sm:w-auto"
+          href="https://app.thinkthankmedia.io"
+        >
           Get started
         </Button>
       </div>
-      <div className="hidden sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-2 sm:mt-12">
-        <p className="text-gray-500 text-sm/6">
-          Sign up for our newsletter
-        </p>
-        <BeehiivEmbed  />
+      <div className="hidden sm:mt-12 sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-2">
+        <p className="text-gray-500 text-sm/6">Sign up for our newsletter</p>
+        <BeehiivEmbed />
       </div>
     </div>
   )
@@ -59,14 +60,14 @@ function SitemapLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
 function Sitemap() {
   return (
     <>
-      {/* <div>
+      <div>
         <SitemapHeading>Product</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="/pricing">Pricing</SitemapLink>
-          <SitemapLink href="#">Analysis</SitemapLink>
-          <SitemapLink href="#">API</SitemapLink>
+          {/* <SitemapLink href="#">Analysis</SitemapLink>
+          <SitemapLink href="#">API</SitemapLink> */}
         </SitemapLinks>
-      </div> */}
+      </div>
       <div>
         <SitemapHeading>Company</SitemapHeading>
         <SitemapLinks>

@@ -40,7 +40,7 @@ export const PUT = withWorkspace(
         projectId: workspace.id,
       },
       data: {
-        dubsh: defaultDomains.includes("dub.sh"),
+        thinkthankio: defaultDomains.includes("thinkthankio"),
         dublink: defaultDomains.includes("dub.link"),
         chatgpt: defaultDomains.includes("chatg.pt"),
         sptifi: defaultDomains.includes("spti.fi"),

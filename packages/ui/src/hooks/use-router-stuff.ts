@@ -1,6 +1,28 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export function useRouterStuff() {
+// Define the return type of useRouterStuff
+type RouterStuff = {
+  pathname: string;
+  router: AppRouterInstance;
+  searchParams: URLSearchParams;
+  searchParamsObj: Record<string, string>;
+  queryParams: (options: {
+    set?: Record<string, string | string[]>;
+    del?: string | string[];
+    replace?: boolean;
+    getNewPath?: boolean;
+    arrayDelimiter?: string;
+  }) => void | string;
+  getQueryString: (
+    kv?: Record<string, any>,
+    opts?: {
+      ignore?: string[];
+    }
+  ) => string;
+};
+
+export function useRouterStuff(): RouterStuff {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();

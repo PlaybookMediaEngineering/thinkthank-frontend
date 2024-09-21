@@ -51,6 +51,7 @@ model Project {
   registeredDomains     RegisteredDomain[]
 
   @@index(usageLastChecked(sort: Asc))
+  notes WorkspaceNote[]
 }
 
 enum Role {

@@ -9,7 +9,9 @@
     "start": "next start",
     "script": "tsx ./scripts/run.ts",
     "test": "vitest -no-file-parallelism",
-    "generate-openapi": "tsx ./scripts/generate-openapi.ts"
+    "generate-openapi": "tsx ./scripts/generate-openapi.ts",
+    "generate-prisma": "npx prisma generate",
+    "push-schema": "npx prisma generate && npx prisma db push"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.17",

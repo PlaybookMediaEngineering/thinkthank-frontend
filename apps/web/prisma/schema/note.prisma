@@ -1,0 +1,10 @@
+model WorkspaceNote {
+  id        String   @id @default(cuid())
+  content   String   @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String
+
+  @@index([projectId])
+}

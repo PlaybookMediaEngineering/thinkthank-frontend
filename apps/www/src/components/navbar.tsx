@@ -18,9 +18,7 @@ const baseLinks = [
   { href: 'https://app.thinkthank.io', label: 'Login' },
 ]
 
-const pricingAndCompanyLinks = [
-  { href: '/company', label: 'Company' },
-]
+const pricingAndCompanyLinks = [{ href: '/company', label: 'Company' }]
 
 const links = featureFlags.showPricingAndCompany
   ? [...pricingAndCompanyLinks, ...baseLinks]
@@ -75,9 +73,9 @@ function MobileNav() {
           </motion.div>
         ))}
       </div>
-      <div className="absolute w-screen -translate-x-1/2 left-1/2">
+      <div className="absolute left-1/2 w-screen -translate-x-1/2">
         <div className="absolute inset-x-0 top-0 border-t border-black/5" />
-        <div className="absolute inset-x-0 border-t top-2 border-black/5" />
+        <div className="absolute inset-x-0 top-2 border-t border-black/5" />
       </div>
     </DisclosurePanel>
   )
@@ -91,11 +89,11 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           <div className="relative flex gap-6">
             <PlusGridItem className="py-3">
               <Link href="/" title="Home">
-                <Logo className="text-white h-9" />
+                <Logo className="h-9 text-white" />
               </Link>
             </PlusGridItem>
             {featureFlags.showNavbarBanner && banner && (
-              <div className="relative items-center hidden py-3 lg:flex">
+              <div className="relative hidden items-center py-3 lg:flex">
                 {banner}
               </div>
             )}

@@ -1,5 +1,5 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 // Define the return type of useRouterStuff
 type RouterStuff = {
@@ -18,7 +18,7 @@ type RouterStuff = {
     kv?: Record<string, any>,
     opts?: {
       ignore?: string[];
-    }
+    },
   ) => string;
 };
 

@@ -9,7 +9,7 @@ import { Subheading } from './text'
 
 function CallToAction() {
   return (
-    <div className="relative pt-20 pb-16 text-center sm:py-24">
+    <div className="relative pb-16 pt-20 text-center sm:py-24">
       <hgroup>
         <Subheading>Get started</Subheading>
         <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
@@ -18,7 +18,7 @@ function CallToAction() {
           Start your free trial today.
         </p>
       </hgroup>
-      <p className="max-w-xs mx-auto mt-6 text-gray-500 text-sm/6">
+      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
         Decode global complexities and unlock your understanding of world
         affairs.
       </p>
@@ -31,7 +31,7 @@ function CallToAction() {
         </Button>
       </div>
       <div className="hidden sm:mt-12 sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-2">
-        <p className="text-gray-500 text-sm/6">Sign up for our newsletter</p>
+        <p className="text-sm/6 text-gray-500">Sign up for our newsletter</p>
         <BeehiivEmbed />
       </div>
     </div>
@@ -39,7 +39,7 @@ function CallToAction() {
 }
 
 function SitemapHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="font-medium text-sm/6 text-gray-950/50">{children}</h3>
+  return <h3 className="text-sm/6 font-medium text-gray-950/50">{children}</h3>
 }
 
 function SitemapLinks({ children }: { children: React.ReactNode }) {
@@ -173,18 +173,18 @@ export function Footer() {
   return (
     <footer>
       <Gradient className="relative">
-        <div className="absolute bg-white inset-2 rounded-4xl" />
+        <div className="absolute inset-2 rounded-4xl bg-white" />
         <Container>
           <CallToAction />
           <PlusGrid className="pb-16">
             <PlusGridRow>
-              <div className="grid grid-cols-2 pb-6 gap-y-10 lg:grid-cols-6 lg:gap-8">
-                <div className="flex col-span-2">
+              <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
+                <div className="col-span-2 flex">
                   <PlusGridItem className="pt-6 lg:pb-6">
                     <Logo className="h-9" />
                   </PlusGridItem>
                 </div>
-                <div className="grid grid-cols-2 col-span-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
+                <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
                   <Sitemap />
                 </div>
               </div>

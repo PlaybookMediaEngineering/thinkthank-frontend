@@ -7,7 +7,7 @@ export default function Welcome() {
     <>
       <TrackSignup />
       <div className="relative mx-auto mt-24 flex max-w-sm flex-col items-center px-3 text-center md:mt-32 md:px-8 lg:mt-48">
-        <div className="animate-slide-up-fade relative flex w-auto items-center justify-center px-6 py-2 [--offset:20px] [animation-duration:1.3s] [animation-fill-mode:both]">
+        <div className="animate-slide-up-fade relative flex w-auto items-center justify-center px-6 py-2 [animation-fill-mode:both] [--offset:20px] [animation-duration:1.3s]">
           <div className="absolute inset-0 opacity-10">
             {[...Array(3)].map((_, i) => (
               <div
@@ -22,13 +22,13 @@ export default function Welcome() {
           </div>
           <Wordmark className="relative h-16" />
         </div>
-        <h1 className="animate-slide-up-fade mt-10 text-2xl font-medium [--offset:10px] [animation-delay:250ms] [animation-duration:1s] [animation-fill-mode:both]">
+        <h1 className="animate-slide-up-fade mt-10 text-2xl font-medium [--offset:10px] [animation-duration:1s] [animation-fill-mode:both] [animation-delay:250ms]">
           Welcome to Dub
         </h1>
-        <p className="animate-slide-up-fade mt-2 text-gray-500 [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
+        <p className="animate-slide-up-fade mt-2 text-gray-500 [--offset:10px] [animation-duration:1s] [animation-fill-mode:both] [animation-delay:500ms]">
           Dub gives you marketing superpowers with short links that stand out.
         </p>
-        <div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-delay:750ms] [animation-duration:1s] [animation-fill-mode:both]">
+        <div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-duration:1s] [animation-fill-mode:both] [animation-delay:750ms]">
           <NextButton text="Get started" step="workspace" />
         </div>
       </div>

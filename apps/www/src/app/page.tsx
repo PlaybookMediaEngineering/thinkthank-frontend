@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 function Hero() {
   return (
     <div className="relative">
-      <Gradient className="absolute bottom-0 inset-2 rounded-4xl ring-1 ring-inset ring-black/5" />
+      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-inset ring-black/5" />
       <Container className="relative">
         <Navbar
         // banner={
@@ -41,7 +41,7 @@ function Hero() {
         //   </Link>
         // }
         />
-        <div className="pt-16 pb-24 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
+        <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 md:pb-48 md:pt-32">
           <Link
             href="/blog/Think Thank Media-raises-100m-series-a-from-tailwind-ventures"
             className="flex w-fit items-center gap-1 rounded-full border border-zinc-950 bg-white px-3 py-1 text-sm font-medium text-zinc-950 data-[hover]:bg-zinc-950 data-[hover]:text-white"
@@ -52,11 +52,11 @@ function Hero() {
           <h1 className="font-display text-balance pt-4 text-6xl/[0.9] font-medium tracking-tight text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
             Understand every story.
           </h1>
-          <p className="max-w-lg mt-12 font-medium text-gray-600 text-xl/7 sm:text-2xl/8">
+          <p className="mt-12 max-w-lg text-xl/7 font-medium text-gray-600 sm:text-2xl/8">
             We localize worldwide financial trends, helping you understand how
             global events impact your daily life.
           </p>
-          <div className="flex flex-col mt-12 gap-x-6 gap-y-4 sm:flex-row">
+          <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
             <Button href="https://app.thinkthankmedia.io">Get started</Button>
             <Button variant="secondary" href="/pricing">
               See pricing
@@ -72,11 +72,11 @@ function FeatureSection() {
   return (
     <div className="overflow-hidden">
       <Container className="pb-24">
-        <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Heading as="h2" className="max-w-3xl">
             A panoramic view of global events shaping our world.
           </Heading>
-          <div className="flex flex-col mt-12 gap-x-6 gap-y-4">
+          <div className="mt-12 flex flex-col gap-x-6 gap-y-4">
             <p>Sign up for our newsletter</p>
             <BeehiivEmbed />
           </div>
@@ -97,11 +97,11 @@ function BentoSection() {
   return (
     <Container>
       <Subheading>Sales</Subheading>
-      <Heading as="h3" className="max-w-3xl mt-2">
+      <Heading as="h3" className="mt-2 max-w-3xl">
         Uncover the stories behind the headlines
       </Heading>
 
-      <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
           eyebrow="Insight"
           title="Gain crystal-clear understanding"
@@ -127,7 +127,7 @@ function BentoSection() {
           title="Built for information seekers"
           description="Navigate complex global news with ease using our streamlined interface and intuitive search features. Quickly access in-depth analysis on breaking stories and long-term trends."
           graphic={
-            <div className="flex pt-10 pl-10 size-full">
+            <div className="flex size-full pl-10 pt-10">
               <Keyboard highlighted={['LeftCommand', 'LeftShift', 'D']} />
             </div>
           }
@@ -154,14 +154,14 @@ function BentoSection() {
 
 function DarkBentoSection() {
   return (
-    <div className="py-32 mx-2 mt-2 bg-white rounded-4xl">
+    <div className="mx-2 mt-2 rounded-4xl bg-white py-32">
       <Container>
         <Subheading dark>Insight</Subheading>
-        <Heading as="h3" className="max-w-3xl mt-2">
+        <Heading as="h3" className="mt-2 max-w-3xl">
           Understanding world events has never been clearer.
         </Heading>
 
-        <div className="grid grid-cols-1 gap-4 mt-10 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <BentoCard
             eyebrow="Networking"
             title="Understand at the speed of news"

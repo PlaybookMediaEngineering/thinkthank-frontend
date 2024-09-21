@@ -1,25 +1,27 @@
-# Cloudflare Worker Template OpenAPI Service
+# Moderation API
 
-This project demonstrates a Cloudflare Worker implementation using OpenAPI 3.1 with [@hono/zod-openapi](https://github.com/honojs/hono). It serves as a template for building OpenAPI-compliant Workers that automatically generate the `openapi.json` schema from code and validate incoming requests against defined parameters and request bodies.
+This Cloudflare Worker-based API facilitates content moderation, leveraging OpenAPI 3.1 with [@hono/zod-openapi](https://github.com/honojs/hono). It provides a secure and scalable backend for managing content moderation tasks, including text, image, and user behavior analysis.
 
-## Features
+## Key Features
 
-- OpenAPI 3.1 compliant
-- Automatic `openapi.json` schema generation
-- Request validation
-- Swagger UI for easy API exploration
-- Support for R2, KV, and Durable Objects
-- Structured project layout for scalability
+- OpenAPI 3.1 compliant endpoints for content submission, analysis, and moderation decisions
+- Automatic request validation and OpenAPI schema generation
+- Secure storage of moderation data using Cloudflare R2 and KV
+- Scalable moderation processing with Durable Objects for state management
+- Asynchronous queue for handling large volumes of moderation requests
+- Interactive API documentation via Swagger UI
 
-## Getting Started
+## Quick Start
 
-1. Sign up for [Cloudflare Workers](https://workers.dev) (free tier available)
-2. Clone this repository
-3. Install dependencies:
+1. Clone the repository
+2. Install dependencies:
    ```
    npm install
    ```
-4. Log in to your Cloudflare account:
+3. Set up environment variables:
+   - Copy `apps/web/.env.example` to `apps/web/.env.local`
+   - Fill in the required values
+4. Log in to Cloudflare:
    ```
    wrangler login
    ```
@@ -30,288 +32,70 @@ This project demonstrates a Cloudflare Worker implementation using OpenAPI 3.1 w
 
 ## Project Structure
 
-- `src/index.ts`: Main application entry point
-- `src/endpoints/`: Individual endpoint definitions
-- `src/pkg/`: Shared utilities and configurations
+- `src/`
+  - `index.ts`: Main application entry point
+  - `endpoints/`: API route definitions
+  - `pkg/`: Shared utilities and configurations
 - `test/`: Test files
+- `scripts/`: Build and deployment scripts
+- `.github/workflows/`: CI/CD pipelines
 
 ## Development
 
-1. Start the local development server:
+1. Start the local server:
    ```
    wrangler dev
    ```
-2. Open `http://localhost:9000/` in your browser to access the Swagger UI
-3. Make changes in the `src/` directory; the server will automatically reload
+2. Access Swagger UI: `http://localhost:9000/`
+3. Make changes in `src/`; the server will hot-reload
 
-## Adding New Endpoints
+## API Endpoints
 
-1. Create a new file in `src/endpoints/`
-2. Define your route using `createRoute` from `@hono/zod-openapi`
-3. Implement the handler function
-4. Register the route in `src/index.ts`
+- `POST /v1/moderate`: Submit content for moderation
+- `GET /v1/moderate/{id}`: Retrieve moderation result for a specific item
+- `POST /v1/moderate/batch`: Submit multiple items for moderation
+- `GET /v1/moderate/stats`: Retrieve moderation statistics
 
-Example:
+## Data Flow
 
-```typescript:src/endpoints/r2/routes.ts
-import { createRoute, z } from "@hono/zod-openapi";
-import { openApiErrorResponses } from "../../pkg/errors";
-import { RecordSchema } from "./types";
+1. Content submission and validation
+2. Analysis using moderation algorithms and/or machine learning models
+3. Secure storage of moderation results in R2 and metadata in KV
+4. Asynchronous processing of large batches through Cloudflare Queue
 
-export const getRoute = createRoute({
-  tags: ["r2"],
-  operationId: "v1.r2.get",
-  method: "get",
-  path: "/v1/r2/{key}",
-  request: {
-    params: z.object({
-      key: z.string(),
-    }),
-  },
-  responses: {
-    200: {
-      description: "The requested record",
-      content: {
-        "application/json": {
-          schema: RecordSchema,
-        },
-      },
-    },
-    ...openApiErrorResponses,
-  },
-});
+## Environment Configuration
 
-export const putRoute = createRoute({
-  tags: ["r2"],
-  operationId: "v1.r2.put",
-  method: "put",
-  path: "/v1/r2/{key}",
-  request: {
-    params: z.object({
-      key: z.string(),
-    }),
-    body: {
-      content: {
-        "application/json": {
-          schema: RecordSchema,
-        },
-      },
-    },
-  },
-  responses: {
-    201: {
-      description: "Record stored successfully",
-      content: {
-        "application/json": {
-          schema: z.object({
-            message: z.string(),
-            id: z.string().uuid(),
-          }),
-        },
-      },
-    },
-    ...openApiErrorResponses,
-  },
-});
+Required Cloudflare components:
+- R2 bucket: `MODERATION_CONTENT_BUCKET`
+- KV namespace: `MODERATION_METADATA`
+- Durable Object: `ModerationProcessor`
+- Queue: `moderation-processing-queue`
 
-export const deleteRoute = createRoute({
-  tags: ["r2"],
-  operationId: "v1.r2.delete",
-  method: "delete",
-  path: "/v1/r2/{key}",
-  request: {
-    params: z.object({
-      key: z.string(),
-    }),
-  },
-  responses: {
-    200: {
-      description: "Record deleted successfully",
-      content: {
-        "application/json": {
-          schema: z.object({
-            message: z.string(),
-          }),
-        },
-      },
-    },
-    ...openApiErrorResponses,
-  },
-});
-```
+Refer to `apps/web/.env.example` for required environment variables.
 
-## Documentation
+## Deployment
 
-For more detailed information on using `@hono/zod-openapi`, refer to the [official Hono documentation](https://hono.dev/guides/zod-openapi).
+Automated deployment is set up via GitHub Actions. See `.github/workflows/deploy-public-app.yaml` for the workflow configuration.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions! Please follow these steps:
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to your fork
+5. Submit a pull request
+
+Ensure your code passes all tests and linting checks before submitting.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source under the [MIT License](LICENSE).
 
-## OpenAPI Definition Generation
+## Additional Resources
 
-This project includes a script to automatically generate the OpenAPI definition from the code. Here's how it works:
+- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
+- [Hono Framework](https://hono.dev/)
+- [OpenAPI Specification](https://swagger.io/specification/)
 
-1. The OpenAPI definition is generated using a custom script located at `scripts/openapi.ts`.
-
-2. To run the script, use the following command:
-
-   ```
-   bun run openapi
-   ```
-
-3. This script does the following:
-
-   - Imports the main application from `src/index.ts`
-   - Generates the OpenAPI document using Hono's built-in functionality
-   - Writes the resulting schema to `api.json` in the project root
-
-4. The generation script is automatically run as part of the pre-commit hook to ensure the API definition is always up-to-date.
-
-5. You can find the script configuration in `package.json`:
-   ```json
-   "scripts": {
-     "openapi": "bun scripts/openapi.ts",
-     "precommit": "npm run openapi && npm run format"
-   }
-   ```
-
-This approach ensures that your OpenAPI definition always reflects the current state of your API implementation.
-
-## Setting Up Cloudflare Components
-
-This project utilizes various Cloudflare components. Follow these steps to set them up:
-
-### R2 Storage
-
-1. Log in to the Cloudflare dashboard
-2. Navigate to "R2" in the sidebar
-3. Click "Create bucket"
-4. Name your bucket (e.g., "my-api-bucket")
-5. Click "Create bucket" to finalize
-6. In your `wrangler.toml`, add:
-   ```toml
-   [[r2_buckets]]
-   binding = "MY_BUCKET"
-   bucket_name = "my-api-bucket"
-   ```
-
-### KV Namespace
-
-1. In the Cloudflare dashboard, go to "Workers & Pages"
-2. Click on "KV" in the sidebar
-3. Click "Create namespace"
-4. Name your namespace (e.g., "my-api-kv")
-5. Click "Add" to create the namespace
-6. In your `wrangler.toml`, add:
-   ```toml
-   kv_namespaces = [
-     { binding = "MY_KV", id = "your-namespace-id" }
-   ]
-   ```
-
-### Durable Objects
-
-1. Create a Durable Object class in your project (e.g., `src/durable_objects/MyObject.ts`)
-2. In `wrangler.toml`, add:
-
-   ```toml
-   [durable_objects]
-   bindings = [
-     { name = "MY_OBJECT", class_name = "MyObject" }
-   ]
-
-   [[migrations]]
-   tag = "v1"
-   new_classes = ["MyObject"]
-   ```
-
-3. Deploy your Worker to create the Durable Object:
-   ```
-   wrangler deploy
-   ```
-
-### Queues
-
-1. In the Cloudflare dashboard, go to "Workers & Pages"
-2. Click on "Queues" in the sidebar
-3. Click "Create queue"
-4. Name your queue (e.g., "my-api-queue")
-5. Choose your queue settings and click "Create"
-6. In your `wrangler.toml`, add:
-   ```toml
-   [[queues.producers]]
-   binding = "MY_QUEUE"
-   queue = "my-api-queue"
-   ```
-7. To create a consumer, add:
-   ```toml
-   [[queues.consumers]]
-   queue = "my-api-queue"
-   max_batch_size = 10
-   max_batch_timeout = 30
-   ```
-
-### Environment Variables
-
-1. For local development, create a `.dev.vars` file in your project root:
-   ```
-   MY_SECRET=mysecretvalue
-   ```
-2. For production, use Cloudflare's secret management:
-   ```
-   wrangler secret put MY_SECRET
-   ```
-3. In your `wrangler.toml`, declare the variable:
-   ```toml
-   [vars]
-   MY_PUBLIC_VARIABLE = "public-value"
-   ```
-
-## Using Cloudflare Components in Your Code
-
-After setting up the components, you can use them in your Worker code:
-
-```typescript
-interface Env {
-  MY_BUCKET: R2Bucket;
-  MY_KV: KVNamespace;
-  MY_OBJECT: DurableObjectNamespace;
-  MY_QUEUE: Queue;
-  MY_SECRET: string;
-  MY_PUBLIC_VARIABLE: string;
-}
-
-export default {
-  async fetch(
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext,
-  ): Promise<Response> {
-    // Use R2
-    await env.MY_BUCKET.put("key", "value");
-
-    // Use KV
-    await env.MY_KV.put("key", "value");
-
-    // Use Durable Object
-    const id = env.MY_OBJECT.newUniqueId();
-    const obj = env.MY_OBJECT.get(id);
-    const resp = await obj.fetch(request.url);
-
-    // Use Queue
-    await env.MY_QUEUE.send({ message: "Hello" });
-
-    // Use environment variables
-    console.log(env.MY_SECRET);
-    console.log(env.MY_PUBLIC_VARIABLE);
-
-    // ... rest of your Worker logic
-    return resp;
-  },
-};
-```
+For detailed API documentation, refer to the Swagger UI when running locally or the generated `api.json` file.

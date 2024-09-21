@@ -6,14 +6,17 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
-import { Bars2Icon } from '@heroicons/react/24/solid'
+import { Bars2Icon, BellIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
+import { Button } from './button'
+import ChangelogWidget from './change-log-widget'
 import { Link } from './link'
 import { Logo } from './logo'
 import { PlusGrid, PlusGridItem, PlusGridRow } from './plus-grid'
 
 const baseLinks = [
   { href: '/pricing', label: 'Pricing' },
+  { href: '/changelog', label: 'Changelog' },
   { href: '/blog', label: 'Blog' },
   { href: 'https://app.thinkthank.io', label: 'Login' },
 ]
@@ -72,10 +75,14 @@ function MobileNav() {
             </Link>
           </motion.div>
         ))}
+        <Button data-featurebase-changelog>
+          <BellIcon className="size-4" />
+          Open changelog <span id="fb-update-badge"></span>
+        </Button>
       </div>
-      <div className="absolute left-1/2 w-screen -translate-x-1/2">
+      <div className="absolute w-screen -translate-x-1/2 left-1/2">
         <div className="absolute inset-x-0 top-0 border-t border-black/5" />
-        <div className="absolute inset-x-0 top-2 border-t border-black/5" />
+        <div className="absolute inset-x-0 border-t top-2 border-black/5" />
       </div>
     </DisclosurePanel>
   )
@@ -89,11 +96,11 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           <div className="relative flex gap-6">
             <PlusGridItem className="py-3">
               <Link href="/" title="Home">
-                <Logo className="h-9 text-white" />
+                <Logo className="text-white h-9" />
               </Link>
             </PlusGridItem>
             {featureFlags.showNavbarBanner && banner && (
-              <div className="relative hidden items-center py-3 lg:flex">
+              <div className="relative items-center hidden py-3 lg:flex">
                 {banner}
               </div>
             )}

@@ -1,3 +1,4 @@
+import AllInOneWidget from '@/components/all-in-one-widget'
 import '@/styles/tailwind.css'
 import type { Metadata } from 'next'
 
@@ -27,7 +28,9 @@ export default function RootLayout({
           href="/blog/feed.xml"
         />
       </head>
-      <body className="text-gray-950 antialiased">{children}</body>
+      <body className="antialiased text-gray-950">{children}
+        <AllInOneWidget />
+      </body>
     </html>
   )
 }
